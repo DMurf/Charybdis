@@ -1,0 +1,42 @@
+﻿@using Charybdis.Web.Helpers
+@model Charybdis.Web.ViewModels.AcademicPerformanceViewModel
+
+<h2 class="govuk-heading-l">Destinations for the 2022 to 2023 academic year</h2>
+
+<h3 class="govuk-heading-m">Staying in education or entering employment</h3>
+
+<p>The graph shows the percentage of pupils who achieved grade 5 or above in GCSE English and maths.The graph shows the percentage of pupils who achieved grade 5 or above in GCSE English and maths.</p>
+
+@await Html.PartialAsync("_VisualMeasure", Model.KS4_Destinations.VisualMeasure)
+
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Breakdown by destination</caption>
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Destination</th>
+            <th scope="col" class="govuk-table__header">School</th>
+            <th scope="col" class="govuk-table__header">@Model.EstablishmentCore.LocalAuthorityName average</th>
+            <th scope="col" class="govuk-table__header">England average</th>
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Girls</th>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Education.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Education_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Education_NAT.Percentify()</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Boys</th>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Employment.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Employment_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Employment_NAT.Percentify()</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Disadvantaged</th>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Apprenticeships.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Apprenticeships_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Destinations.Destination_Apprenticeships_NAT.Percentify()</td>
+        </tr>
+    </tbody>
+</table>

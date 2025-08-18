@@ -1,0 +1,86 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<AppSettingsOptions> appSettingsOptions
+
+@{
+    ViewBag.ServiceName = appSettingsOptions.Value.ServiceName;
+}
+
+<div class="column-two-thirds">
+    <h1 class="heading-xlarge">
+        Privacy notice
+    </h1>
+    <div>
+        <h3 class="bold-small subheading">Who we are</h3>
+        <p>@ViewBag.ServiceName is operated by the Department for Education ('we' or 'us'). For the purpose of data protection legislation, the DfE is the data controller for the personal data processed as part of @ViewBag.ServiceName.</p>
+        <p>This privacy policy sets out how we collect and process your personal data on the website. This policy applies to all users of the @ViewBag.ServiceName website ('you').</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">How we will use your information</h3>
+        <p>We receive your personal data from early years and compulsory school age establishments, further and higher education institutions, local authorities and academy trusts. We are processing this data in order to help the education sector and general public compare the performance of schools, colleges, multi-academy trusts, and other organisations.</p>
+        <p>We also receive your personal data when you visit the site, complete the feedback survey or tell us if something is wrong. We use this information to improve the service. You can find out more at: <a href="https://www.gov.uk/government/organisations/department-for-education" target="_blank" rel="noreferrer noopener">www.gov.uk/government/organisations/department-for-education<span class="visuallyhidden">  opens in a new window </span></a></p>
+        <p>Your use of our website means that you accept and consent to our use of your personal data as set out in this privacy policy, which supplements our terms of use for the <a href="https://www.compare-school-performance.service.gov.uk/find-a-school-in-england" target="_blank" rel="noreferrer noopener">@ViewBag.ServiceName website<span class="visuallyhidden">  opens in a new window </span></a>.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">The nature of your personal data we will be using</h3>
+        <p>We collect certain information or data about you when you use the @ViewBag.ServiceName website or when data is passed to us by the Get information about schools service.</p>
+        <p>The categories of your personal data that we will be using for this project are:</p>
+        <ul class="usage-desc">
+            <li>headteachers' and governors' names and email addresses </li>
+            <li>internet protocol addresses (IPs)</li>
+        </ul>
+        <p>This helps us to improve the site by monitoring how you use it and respond to any feedback you send us, if you request it. We cannot personally identify you using your IP.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Why our use of your personal data is lawful</h3>
+        <p>In order for our use of your personal data to be lawful, we need to meet one (or more) conditions in the data protection legislation. For the purpose of this project, the relevant condition(s) that we are meeting are as set out in Article 6(1)(e) and Article 9(2)(e and g) of the General Data Protection Regulation (GDPR).</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Where your data is stored</h3>
+        <p>We store your data on our secure servers in the UK. It may also be stored outside of Europe, where it could be viewed by our staff or suppliers. <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noreferrer noopener">Google's privacy policy<span class="visuallyhidden">  opens in a new window </span></a> applies to the data we store outside of Europe. By submitting your personal data, you agree to this.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Keeping your data secure</h3>
+        <p>Transmitting information over the internet is generally not completely secure, and we cannot guarantee the security of your data. Any data you transmit is at your own risk.</p>
+        <p>We have appropriate procedures and security features in place to keep your data secure once we receive it.</p>
+        <p>We will not share your information with any other organisations for marketing, market research or commercial purposes, and we do not pass on your details to other websites.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">How long we will keep your personal data</h3>
+        <p>We will keep your personal data for a maximum of 3 years, after which point it will be securely destroyed.</p>
+        <p>We will share your information with third parties only where the law allows it.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Your data protection rights</h3>
+        <p>You have the right:</p>
+        <ul class="usage-desc">
+            <li>to ask us for access to information about you that we hold</li>
+            <li>to have your personal data rectified, if it is inaccurate or incomplete</li>
+            <li>to request the deletion or removal of personal data where there is no compelling reason for its continued processing</li>
+            <li>to restrict our processing of your personal data (i.e. permitting its storage but no further processing)</li>
+            <li>to object to direct marketing (including profiling) and processing for the purposes of scientific/historical research and statistics</li>
+            <li>not to be subject to decisions based purely on automated processing where it produces a legal or similarly significant effect on you</li>
+        </ul>
+        <p>Further information about <a href="https://ico.org.uk/global/privacy-notice/your-data-protection-rights/" target="_blank" rel="noreferrer noopener">your data protection rights<span class="visuallyhidden">  opens in a new window </span></a> appears on the Information Commissioner's website.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">The right to lodge a complaint</h3>
+        <p>You have the right to raise any concerns with the Information Commissioner’s Office (ICO) via their website at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noreferrer noopener">https://ico.org.uk/make-a-complaint/<span class="visuallyhidden">  opens in a new window </span></a>.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Last updated</h3>
+        <p>We may need to update this privacy notice periodically so we recommend that you revisit this information from time to time. This version was last updated on 11/06/18.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Following a link to @ViewBag.ServiceName from another website</h3>
+        <p>If you come to @ViewBag.ServiceName from another website, we may receive personal information about you from the other website. You should read the privacy policy of the website you came from to find out more about this.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Cookies</h3>
+        <p>We put small files (known as 'cookies') onto your computer or other internet-enabled device when you visit @ViewBag.ServiceName. Cookies are stored by your browser and hard drive and are used to distinguish you from other visitors to the website, to collect information about how you browse @ViewBag.ServiceName and for security and monitoring of the website.</p>
+        <p>You consent to the storage of cookies by @ViewBag.ServiceName on your computer's hard drive.</p>
+    </div>
+    <div>
+        <h3 class="bold-small subheading">Contact information</h3>
+        <p>If you have any questions about how your personal information will be processed, please contact us at <a href="https://www.gov.uk/contact-dfe" target="_blank" rel="noreferrer noopener">https://www.gov.uk/contact-dfe<span class="visuallyhidden">  opens in a new window </span></a> and enter @ViewBag.ServiceName as a reference.</p>
+    </div>
+</div>

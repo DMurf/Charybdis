@@ -1,0 +1,22 @@
+﻿@model Charybdis.Web.ViewModels.AcademicPerformanceViewModel
+
+<h1 class="govuk-heading-l">Key stage 4 results for the 2024 to 2025 academic year</h1>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <p>Choose the grade you want to see results for</p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+        <govuk-select name="Sort">
+            <govuk-select-label>Filter</govuk-select-label>
+            <govuk-select-item value="grade5">Grade 5 and above</govuk-select-item>
+            <govuk-select-item value="grade4">Grade 4 and above</govuk-select-item>
+        </govuk-select>
+        <govuk-button type="submit">Show results</govuk-button>
+    </div>
+
+
+</div>
+
+
+@await Html.PartialAsync("Measures/KS4_Grade5_EngMaths", Model)

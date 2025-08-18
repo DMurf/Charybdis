@@ -1,0 +1,63 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<AppSettingsOptions> appSettingsOptions
+
+@{
+    ViewBag.ServiceName = appSettingsOptions.Value.ServiceName;
+}
+
+<h1 class="govuk-heading-l">Cookies on @ViewBag.ServiceName</h1>
+
+<div class="summary">
+    <p>Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
+
+    <p>We use cookies to store information about how you use the GOV.UK website, such as the pages you visit.</p>
+
+    <h2 class="heading-medium">Cookie settings</h2>
+
+    <p>We use 2 types of cookie. You can choose which cookies you're happy for us to use.</p>
+
+    <h3 class="heading-small">Cookies that measure website use</h3>
+
+    <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
+    <ul class="list-bullet list-disc">
+        <li>how you got to the site</li>
+        <li>the pages you visit on GOV.UK and how long you spend on each page</li>
+        <li>what you click on while you're visiting the site</li>
+    </ul>
+
+    <p>We do not allow Google to use or share the data about how you use this site.</p>
+    <form class="radio" method="post">
+        <input type="hidden" name="OriginatingPage" value="/cookie-settings">
+        <div class="cookies-radios-container">
+            <div class="multiple-choice">
+                <div class="form-group">
+                    <input type="radio" class="form-radio" value="true" name="acceptAnalyticsCookies" id="onGoogleShareData">
+                    <label for="onGoogleShareData" class="govuk-label">On</label>
+                </div>
+            </div>
+            <div class="multiple-choice">
+                <div class="form-group">
+                    <input type="radio" class="form-radio" value="false" name="acceptAnalyticsCookies" id="offGoogleShareData">
+                    <label for="offGoogleShareData" class="govuk-label">Off</label>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="heading-small">Strictly necessary cookies</h3>
+        <p>These essential cookies do things like:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>remember the notifications you've seen so we do not show them to you again</li>
+            <li>remember your cookie settings</li>
+            <li>remember the schools you have added to your my schools list</li>
+        </ul>
+        <p>
+            They always need to be on.
+            <a href="/cookies">Find out more about cookies on @ViewBag.ServiceName</a>
+            <br>
+        </p>
+        <div class="form-group">
+            <br>
+            <button class="button" type="submit">Save changes</button>
+        </div>
+    </form>
+</div>

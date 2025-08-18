@@ -1,0 +1,112 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<AppSettingsOptions> appSettingsOptions
+
+@{
+    ViewBag.ServiceName = appSettingsOptions.Value.ServiceName;
+}
+
+<div class="grid-row">
+    <div class="column-three-quarters">
+        <h1 class="heading-xlarge">Accessibility statement for @ViewBag.ServiceName</h1>
+    </div>
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <p>This service is part of the wider GOV.UK website. There's a separate accessibility statement for the main GOV.UK website.</p>
+
+        <p>
+            This accessibility statement applies to @ViewBag.ServiceName service, available at
+            <a href="https://www.compare-school-performance.service.gov.uk/">https://www.compare-school-performance.service.gov.uk/</a>
+        </p>
+
+        <p>
+            This website is run by the Department for Education. We want as many people as possible to be able to use this website. For example, that means you will be able to:
+        </p>
+        <ul class="list-bullet list-disc">
+            <li>change colours, contrast levels and fonts</li>
+            <li>zoom in up to 300% without the text spilling off the screen</li>
+            <li>navigate most of the website using just a keyboard</li>
+            <li>navigate most of the website using speech recognition software</li>
+            <li>listen to most of the website using a screen reader (including the most recent versions of JAWS and VoiceOver, Dragon Naturally Speaking and Fusion)</li>
+        </ul>
+
+        <p>Testing was carried out using the following software:</p>
+        <ul class="list-bullet list-disc">
+            <li><strong class="bold">Dragon NaturallySpeaking (V15.71)</strong>, a voice recognition (speech to text) program which requires minimal user interface from a mouse or keyboard.</li>
+            <li><strong class="bold">JAWS (2023)</strong>, a screen reader (text to speech) program developed for users whose vision loss prevents them from seeing screen content or navigating with a mouse. </li>
+            <li><strong class="bold">Zoomtext (2023)</strong>, a magnification and reading program tailored for low-vision users.  It enlarges and enhances everything on screen, echoes typing and essential program activity, and reads screen content.</li>
+        </ul>
+
+        <h2 class="heading-medium">How accessible this website is</h2>
+
+        <p>We know some parts of this website aren’t fully accessible:</p>
+        <ul class="list-bullet list-disc">
+            <li>When changing colours and contrast icons can be lost and charts can be difficult to read depending on the users choice.</li>
+            <li>The comparison tables don't work well when zoomed in.</li>
+            <li>Maps can be difficult to navigate via keyboards and screen readers</li>
+        </ul>
+
+        <h2 class="heading-medium">Feedback and Contact Information</h2>
+
+        <p>If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, contact us <a href="https://www.gov.uk/contact-dfe">www.gov.uk/contact-dfe</a></p>
+
+        <h2 class="heading-medium">Reporting accessibility problems with this website</h2>
+
+        <p>We’re always looking to improve the accessibility of this website. If you find any problems that aren’t listed on this page or think we’re not meeting the requirements of the accessibility regulations, contact us by clicking on the contact link in the page footer.</p>
+
+        <h2 class="heading-medium">Enforcement procedure</h2>
+
+        <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the accessibility regulations. If you’re not happy with how we respond to your complaint, contact the <a href="https://www.equalityadvisoryservice.com/">Equality Advisory and Support Service (EASS).</a></p>
+
+        <h2 class="heading-medium">Contacting us</h2>
+
+        <p>
+            You can contact us about this service using the contact link in the page footer.
+            If your query is about anything else or you need to contact us by phone, you can find out how to contact us at <a href="https://www.gov.uk/contact-dfe">www.gov.uk/contact-dfe</a>
+        </p>
+
+        <h2 class="heading-medium">Technical information about this website’s accessibility</h2>
+
+        <p>The Department for Education is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+
+        <h2 class="heading-medium">Compliance Status</h2>
+
+        <p>This website is partially compliant with the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines version 2.1</a> AA standard, due to the non-compliances listed below.</p>
+
+
+        <h2 class="heading-medium">Non Accessible Content</h2>
+
+        <p>The content listed below is non-accessible for the following reasons.</p>
+
+        <h2 class="heading-medium">Non Compliance with the accessibility regulations</h2>
+
+        <h3 class="heading-small">Navigation and accessing information</h3>
+
+        <p>The radio buttons needed to filter results, are not accessible using standard voice commands so the MouseGrid feature needs to be used. The MouseGrid divides the screen into 9 numbered parts and the user dictates a grid number so that focus is given to that particular area of the screen.  Whilst this is not a compliance failure, it does make the system difficult to use for someone who relies on voice input.</p>
+
+        <h3 class="heading-small">Zoomtext</h3>
+        <p>When the page is magnified at a greater degree than 100%, the information on the page is rendered as such that there is no horizontal scroll bar.</p>
+
+        <h3 class="heading-small">Interactive tools and transactions</h3>
+
+        <p>The website provides users with a list of links that are on the Web page. Link text aids users who want to choose from this list of links. It is best practice for links with different purposes and destinations to have different link text.  On multiple pages, there are 3 links labelled “View” that go to different destinations.  This contravenes <a href="https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html">WCAG 2.1 AA success criteria 4.1.2</a></p>
+
+        <p>When listing links, there are a number of <strong class="bold">-opens a popup</strong> that appear in the Links List dialogue box. These all display popup dialogue boxes with different messages.</p>
+
+
+        <h2 class="heading-medium">Disproportionate Burden</h2>
+
+        <p>Not applicable</p>
+
+        <h2 class="heading-medium">What we’re doing to improve accessibility</h2>
+
+        <p>We continually review and test our service with users including users of assistive technology. When accessibility issues are found we will always prioritise this within our work plans.</p>
+
+        <h2 class="heading-medium">Preparation of this accessibility statement</h2>
+
+        <p>This statement was prepared on 10  September 2020. It was last reviewed on 11 December 2023.</p>
+
+        <p>This website was last tested on 26 May 2023. The test was carried out by the Department for Education.</p>
+    </div>
+</div>

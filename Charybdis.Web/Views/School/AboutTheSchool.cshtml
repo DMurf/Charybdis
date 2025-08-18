@@ -1,0 +1,283 @@
+﻿@model Charybdis.Core.Entities.EstablishmentCore
+
+@{
+    ViewBag.Title = "About the school";
+
+}
+
+@* <govuk-breadcrumbs collapse-on-mobile="true">
+    <govuk-breadcrumbs-item asp-controller="Home" asp-action="Index">Home</govuk-breadcrumbs-item>
+    <govuk-breadcrumbs-item>@Model.EstablishmentName</govuk-breadcrumbs-item>
+</govuk-breadcrumbs> *@
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">@Model.EstablishmentName</span>
+        <h1 class="govuk-heading-xl">About the school</h1>
+
+
+        <govuk-summary-list>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Name
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.EstablishmentName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            @if (!string.IsNullOrWhiteSpace(Model.TrustName))
+            {
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Academy Trust
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+                        @Model.TrustName
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+            }
+        </govuk-summary-list>
+
+        <h3 class="govuk-heading-m">Contact information</h3>
+
+        <govuk-summary-list>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Website
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.Website
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            @if (!string.IsNullOrWhiteSpace(Model.Email))
+            {
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Email
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+                        @Model.Email
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Telephone))
+            {
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Telephone
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+                        @Model.Telephone
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+            }
+        </govuk-summary-list>
+
+        <h2 class="govuk-heading-l">Location</h2>
+
+        <govuk-summary-list>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Address
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.FullAddress
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Local authority
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.LocalAuthorityName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Your distance from the school
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    ??
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+        </govuk-summary-list>
+
+        <govuk-details>
+            <govuk-details-summary>
+                View this information on a map
+            </govuk-details-summary>
+            <govuk-details-text>
+                We need to know your nationality so we can work out which elections you’re entitled to vote in.
+                If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+            </govuk-details-text>
+        </govuk-details>
+
+
+        <h2 class="govuk-heading-l">School features</h2>
+
+        <govuk-summary-list>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Value and ethos
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    <a href="@Model.Website">View their value and ethos on @Model.EstablishmentName website</a>
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Type of school
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.EstablishmentTypeName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Headteacher
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.HeadTeacherName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Age range
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.AgeRange
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Number of pupils
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    ??
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Pupil sex
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.GenderName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Religious character
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.ReligiousCharacterName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Sixth form
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    @Model.SixthFormName
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Specialist unit
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    ??
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+        </govuk-summary-list>
+
+        <govuk-details>
+            <govuk-details-summary>
+                What is a specialist unit?
+            </govuk-details-summary>
+            <govuk-details-text>
+                A dedicated part of a mainstream school that offers specific support for students with special educational needs and disabilities (SEND).
+            </govuk-details-text>
+        </govuk-details>
+
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Documents published by the school
+                </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis augue eu pretium scelerisque. Mauris eu volutpat augue. Mauris et erat placerat dolor aliquam hendrerit. Integer vitae scelerisque velit, ut mollis urna. Vivamus cursus ac nunc vel scelerisque. Cras sit amet ornare nibh. Aenean id est at leo congue dignissim at ut diam.</p>
+
+                <a href="@Model.Website">View these policies on the school website</a>
+                <govuk-summary-list>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Policy
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+                        Description
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Accessibility plan
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Behaviour policy
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Charging and remissions policy
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Complains policy
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Safeguarding policy
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        School uniform policy
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+                <govuk-summary-list-row>
+                    <govuk-summary-list-row-key>
+                        Special educational needs and disabilities (SEND) information report
+                    </govuk-summary-list-row-key>
+                    <govuk-summary-list-row-value>
+
+                    </govuk-summary-list-row-value>
+                </govuk-summary-list-row>
+            </govuk-summary-list>
+            </div>
+        </div>
+    </div>
+</div>

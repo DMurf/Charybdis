@@ -1,0 +1,59 @@
+﻿@using System.Globalization
+@using Charybdis.Web.Helpers
+@model Charybdis.Core.Entities.VisualMeasure
+
+<govuk-tabs>
+    @if (Model.ShowChart)
+    {
+        <govuk-tabs-item id="@Model.ChartId-barchart" label="Show as chart">
+            <canvas id="@Model.ChartId" class="barchart" data-labels="@Model.ChartTableLabelString" data-values="@Model.ChartDataValuesString"></canvas>
+        </govuk-tabs-item>
+    }
+    @if (Model.ShowROT)
+    {
+        <govuk-tabs-item id="@Model.ROTId-rotchart" label="View data over time">
+            <canvas id="@Model.ROTId" class="rotchart" data-scale="@Model.ROTDataScaleLabelsString" data-labels="@Model.ROTDataTableLabelsString" data-values-y1="@Model.ROTDataValuesY1String" data-values-y2="@Model.ROTDataValuesY2String" data-values-y3="@Model.ROTDataValuesY3String"></canvas>
+        </govuk-tabs-item>
+    }
+    <govuk-tabs-item id="@Model.TableId" label="Show as a table">
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+
+                    @if (Model.ShowROT)
+                    {
+                        <th scope="col" class="govuk-table__header"></th>
+                        @foreach (var item in Model.ROTDataTableLabels)
+                        {
+                            <th scope="col" class="govuk-table__header">@item</th>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                @if (Model.ShowROT)
+                {
+                    @for (int i = 0; i < Model.ROTDataTableLabels.Count(); i++)
+                    {
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__cell">@Model.ROTDataScaleLabels[i]</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">@Model.ROTDataValuesY1[i].Percentify()</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">@Model.ROTDataValuesY2[i].Percentify()</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">@Model.ROTDataValuesY3[i].Percentify()</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    @for (int i = 0; i < Model.ChartTableLabels.Count(); i++)
+                    {
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__cell">@Model.ChartTableLabels[i]</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">@Model.ChartDataValues[i].Percentify()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </govuk-tabs-item>
+</govuk-tabs>

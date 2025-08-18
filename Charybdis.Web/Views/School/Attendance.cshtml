@@ -1,0 +1,122 @@
+﻿@model Charybdis.Core.Entities.EstablishmentCore
+
+@{
+    ViewBag.Title = "Attendance";
+
+}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">@Model.EstablishmentName</span>
+        <h1 class="govuk-heading-xl">@ViewBag.Title</h1>
+
+        <p>WAFFLE</p>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Documents published by the school
+                </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+                <p>All schools must publish an attendance policy</p>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Policy</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header">Description</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header">Link</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Attendance policy</th>
+                            <td class="govuk-table__cell govuk-table__cell">Outlines expectations, procedures, and responcibilites for ensuring pupils attend school regularly and punctually</td>
+                            <td class="govuk-table__cell govuk-table__cell"><a href="@Model.Website">View the attendance policy on @Model.EstablishmentName's website</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="govuk-heading-l">Attendance in the 2024 to 2025 academic year</h2>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                <p class="govuk-heading-l">??</p>
+                <span class="govuk-caption-m">@Model.EstablishmentName's attendance</span>
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__header">@Model.LocalAuthorityName average</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">??%</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__header">England average</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">??%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3 class="govuk-heading-m">Absence</h3>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header"></th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">School</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">@Model.LocalAuthorityName average</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">England average</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Absence</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <h3 class="govuk-heading-m">Reasons for absence</h3>
+
+        <p>WAFFLE</p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Type of absence</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">School</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">@Model.LocalAuthorityName average</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">England average</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__cell">Persistent absence</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__cell">Authorised absence</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__cell">Unauthorised absence</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">%?</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

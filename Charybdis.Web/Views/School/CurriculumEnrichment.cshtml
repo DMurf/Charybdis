@@ -1,0 +1,76 @@
+﻿@model Charybdis.Core.Entities.EstablishmentCore
+
+@{
+    ViewBag.Title = "Curriculum and enrichment";
+
+}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">@Model.EstablishmentName</span>
+        <h1 class="govuk-heading-xl">@ViewBag.Title</h1>
+
+        <h2 class="govuk-heading-l">Curriculum</h2>
+
+        <p>WAFFLE</p>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Reception admissions
+                </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+                <p>Current curriculum</p>
+                <govuk-summary-list>
+                    <govuk-summary-list-row>
+                        <govuk-summary-list-row-key>
+                            Key stage 3 (KS3) curriculum
+                            <span class="govuk-caption-m">Covers year 7 to 9</span>
+                        </govuk-summary-list-row-key>
+                        <govuk-summary-list-row-value>
+                            <a href="@Model.Website">View the Key stage 3 curriculum on @Model.EstablishmentName's website</a>
+                        </govuk-summary-list-row-value>
+                    </govuk-summary-list-row>
+                    <govuk-summary-list-row>
+                        <govuk-summary-list-row-key>
+                            Key stage 4 (KS4) curriculum
+                            <span class="govuk-caption-m">Covers year 10 to 11</span>
+                        </govuk-summary-list-row-key>
+                        <govuk-summary-list-row-value>
+                            <a href="@Model.Website">View the Key stage 4 curriculum on @Model.EstablishmentName's website</a>
+                        </govuk-summary-list-row-value>
+                    </govuk-summary-list-row>
+                </govuk-summary-list>
+            </div>
+        </div>
+
+        <hr />
+
+        <h2 class="govuk-heading-l">Enrichment</h2>
+
+        <p>WAFFLE</p>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Current enrichment offered
+                </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+                <p>Current curriculum</p>
+                <govuk-summary-list>
+                    <govuk-summary-list-row>
+                        <govuk-summary-list-row-key>
+                            Enrichment
+                        </govuk-summary-list-row-key>
+                        <govuk-summary-list-row-value>
+                            <a href="@Model.Website">View the enrichment activities on @Model.EstablishmentName's website</a>
+                        </govuk-summary-list-row-value>
+                    </govuk-summary-list-row>
+                </govuk-summary-list>
+            </div>
+        </div>
+
+    </div>
+</div>

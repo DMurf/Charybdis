@@ -1,0 +1,48 @@
+﻿@model Charybdis.Web.ViewModels.AcademicPerformanceViewModel
+
+@{
+    ViewBag.Title = "Academic performance";
+
+}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <span class="govuk-caption-xl">@Model.EstablishmentCore.EstablishmentName</span>
+        <h1 class="govuk-heading-xl">@ViewBag.Title</h1>
+
+        <p>Vivamus magna lectus, accumsan a felis at, pharetra elementum tellus. Sed vel lectus odio. Donec in ipsum quam. Aenean ut nisl dolor.</p>
+
+        <govuk-service-navigation>
+            <govuk-service-navigation-nav>
+                <govuk-service-navigation-nav-item href="?tab=results">Key stage 4 results</govuk-service-navigation-nav-item>
+                <govuk-service-navigation-nav-item href="?tab=entries">Key stage 4 exam entries</govuk-service-navigation-nav-item>
+                <govuk-service-navigation-nav-item href="?tab=progress">Progress</govuk-service-navigation-nav-item>
+                <govuk-service-navigation-nav-item href="?tab=destination">Destinations</govuk-service-navigation-nav-item>
+            </govuk-service-navigation-nav>
+        </govuk-service-navigation>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds" style="padding-top:50px;">
+
+        @if (ViewBag.Tab == "entries")
+        {
+            @await Html.PartialAsync("Partials/_KS4ExamEntries", Model)
+        }
+        else if (ViewBag.Tab == "progress")
+        {
+            @await Html.PartialAsync("Partials/_KS4Progress", Model)
+        }
+        else if (ViewBag.Tab == "destination")
+        {
+            @await Html.PartialAsync("Partials/_KS4Destinations", Model)
+        }
+        else
+        {
+            @await Html.PartialAsync("Partials/_KS4Results", Model)
+        }
+
+        
+    </div>
+
+
+</div>

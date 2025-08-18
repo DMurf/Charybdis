@@ -1,0 +1,48 @@
+﻿@using Charybdis.Web.Helpers
+@model Charybdis.Web.ViewModels.AcademicPerformanceViewModel
+
+
+
+<h3 class="govuk-heading-m">Grade achieved in England and maths GCSEs</h3>
+
+<p>The graph shows the percentage of pupils who achieved grade 5 or above in GCSE English and maths.</p>
+
+@await Html.PartialAsync("_VisualMeasure", Model.KS4_Grade5EngMath.VisualMeasure)
+
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Grade achieved by characteristic</caption>
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-half">Characteristic</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">School</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">@Model.EstablishmentCore.LocalAuthorityName average</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">England average</th>
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Girls</th>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_Girls.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_Girls_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_Girls_NAT.Percentify()</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Boys</th>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_Boys.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_Boys_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_Boys_NAT.Percentify()</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Disadvantaged</th>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_DisAdv.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_DisAdv_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_DisAdv_NAT.Percentify()</td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">English as an Additional Language (EAL)</th>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_EAL.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_EAL_LA.Percentify()</td>
+            <td class="govuk-table__cell">@Model.KS4_Grade5EngMath.Grade5_EngMaths_EAL_NAT.Percentify()</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model Charybdis.Web.ViewModels.AcademicPerformanceViewModel
+
+<h1 class="govuk-heading-l">Key stage 4 entries for the 2024 to 2025 academic year</h1>
+
+
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Core subjects entered at key stage 4</caption>
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Subject</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Qualifications offered</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total number of entries</th>
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+        @foreach(var item in Model.KS4_SubjectEntries.CoreSubjects)
+        {
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">@item.Subject</td>
+                <td class="govuk-table__cell">@item.Qualification</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">@item.NumberOfEntries</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Additional subjects entered at key stage 4</caption>
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Subject</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Qualifications offered</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total number of entries</th>
+        </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+        @foreach (var item in Model.KS4_SubjectEntries.AdditionalSubjects)
+        {
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">@item.Subject</td>
+                <td class="govuk-table__cell">@item.Qualification</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">@item.NumberOfEntries</td>
+            </tr>
+        }
+    </tbody>
+</table>

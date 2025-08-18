@@ -1,0 +1,116 @@
+﻿@model Charybdis.Core.Entities.EstablishmentCore
+
+@{
+    ViewBag.Title = "Admissions";
+
+}
+
+@* <govuk-breadcrumbs collapse-on-mobile="true">
+    <govuk-breadcrumbs-item asp-controller="Home" asp-action="Index">Home</govuk-breadcrumbs-item>
+    <govuk-breadcrumbs-item>@Model.EstablishmentName</govuk-breadcrumbs-item>
+</govuk-breadcrumbs> *@
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">@Model.EstablishmentName</span>
+        <h1 class="govuk-heading-xl">@ViewBag.Title</h1>
+
+        <h2 class="govuk-heading-m">Upcoming admissions</h2>
+
+        <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                    Reception admissions
+                </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+                <p>Children born blah balh blah</p>
+
+                <govuk-warning-text icon-fallback-text="Warning">
+                    You can apply from 1 November 2025 to 15 January 2026
+                </govuk-warning-text>
+
+                <govuk-summary-list>
+                    <govuk-summary-list-row>
+                        <govuk-summary-list-row-key>
+                            Admissions policy
+                        </govuk-summary-list-row-key>
+                        <govuk-summary-list-row-value>
+                            <a href="@Model.Website">View the admissions policy on @Model.EstablishmentName's website</a>
+                        </govuk-summary-list-row-value>
+                    </govuk-summary-list-row>
+                    <govuk-summary-list-row>
+                        <govuk-summary-list-row-key>
+                            Apply for a place
+                        </govuk-summary-list-row-key>
+                        <govuk-summary-list-row-value>
+                            <a href="https://www.gov.uk/apply-for-secondary-school-place">Apply for a school place</a>
+                        </govuk-summary-list-row-value>
+                    </govuk-summary-list-row>
+                    <govuk-summary-list-row>
+                        <govuk-summary-list-row-key>
+                            Make an appeal
+                        </govuk-summary-list-row-key>
+                        <govuk-summary-list-row-value>
+                            <a href="#">Make an appeal on @Model.LocalAuthorityName's website</a>
+                        </govuk-summary-list-row-value>
+                    </govuk-summary-list-row>
+                </govuk-summary-list>
+            </div>
+        </div>
+
+        <govuk-details>
+            <govuk-details-summary>
+                What to do if your child is moving schools
+            </govuk-details-summary>
+            <govuk-details-text>
+                Erhm, dunno?
+            </govuk-details-text>
+        </govuk-details>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">Pupil numbers for the 2024 to 2025 academic year</h2>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                <p class="govuk-heading-l">@Model.TotalPupilNumber.ToString("n")</p>
+                <span class="govuk-caption-m">Number of pupils</span>
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <p class="govuk-heading-l">??</p>
+                <span class="govuk-caption-m">Pupil to teacher ratio</span>
+            </div>
+        </div>
+
+        <h3 class="govuk-heading-s">Year group breakdown</h3>
+
+        <govuk-summary-list>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Year group
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    Number of pupils
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Year 7
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    1,000,000
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+            <govuk-summary-list-row>
+                <govuk-summary-list-row-key>
+                    Year 8
+                </govuk-summary-list-row-key>
+                <govuk-summary-list-row-value>
+                    1,000,000
+                </govuk-summary-list-row-value>
+            </govuk-summary-list-row>
+        </govuk-summary-list>
+    </div>
+</div>
