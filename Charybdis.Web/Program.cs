@@ -37,19 +37,14 @@ public class Program
 
         builder.Services.AddGovUkFrontend(options =>
         {
-
             options.Rebrand = true;
-            options.GetCspNonceForRequest = context =>
-            {
-                return CSPHelper.RandomCharacters;
-            };
         });
 
         builder.Services.AddControllersWithViews()
-                .AddRazorOptions(options =>
-                {
-                    options.ViewLocationFormats.Add("/{0}.cshtml");
-                });
+        .AddRazorOptions(options =>
+        {
+            options.ViewLocationFormats.Add("/{0}.cshtml");
+        });
 
 
 
@@ -108,7 +103,7 @@ public class Program
             app.UseHsts();
         }
 
-        if (!appSettings.EnableDetailedErrors)
+        if (appSettings?.EnableDetailedErrors == true)
         {
             app.UseStatusCodePagesWithReExecute("/Error/{0}");
         }
@@ -121,34 +116,35 @@ public class Program
 
         app.UseAuthorization();
 
-        //app.Use(async (context, next) =>
-        //{
-        //    context.Response.Headers.Append("Expect-CT", "max-age=86400, enforce");
-        //    context.Response.Headers.Append("Referrer-Policy", "same-origin");
-        //    context.Response.Headers.Append("Arr-Disable-Session-Affinity", "true");
-        //    context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
-        //    context.Response.Headers.Append("X-Frame-Options", "DENY");
-        //    context.Response.Headers.Append("X-Permitted-Cross-Domain-Policies", "none");
-        //    context.Response.Headers.Append("X-XSS-Protection", "0");
-        //    context.Response.Headers.Append("Strict-Transport-Security", "max-age=31536000;includeSubDomains; preload");
+        app.Use(async (context, next) =>
+        {
+            context.Response.Headers.Append("Expect-CT", "max-age=86400, enforce");
+            context.Response.Headers.Append("Referrer-Policy", "same-origin");
+            context.Response.Headers.Append("Arr-Disable-Session-Affinity", "true");
+            context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
+            context.Response.Headers.Append("X-Frame-Options", "DENY");
+            context.Response.Headers.Append("X-Permitted-Cross-Domain-Policies", "none");
+            context.Response.Headers.Append("X-XSS-Protection", "0");
+            context.Response.Headers.Append("Strict-Transport-Security", "max-age=31536000;includeSubDomains; preload");
 
-        //    context.Items["ScriptNonce"] = CSPHelper.RandomCharacters;
+            context.Items["ScriptNonce"] = CSPHelper.RandomCharacters;
 
-        //    context.Response.Headers.Append(
-        //        "Content-Security-Policy",
-        //        "base-uri 'self';"
-        //        + "default-src 'self';"
-        //        + "frame-ancestors 'none';"
-        //        + "connect-src 'self' *.google-analytics.com *.analytics.google.com *.clarity.ms; child-src 'none';"
-        //        + "frame-src 'none';"
-        //        + "img-src 'self'"
-        //        + "style-src 'self'"
-        //        + "font-src 'self'"
-        //        + $"script-src 'self' 'nonce-{context.Items["ScriptNonce"]} https://www.googletagmanager.com *.google-analytics.com https://*.clarity.ms;"
-        //        );
+            context.Response.Headers.Append(
+                "Content-Security-Policy",
+                "base-uri 'self';"
+                + "object-src 'none';"
+                + "default-src 'self';"
+                + "frame-ancestors 'none';"
+                + "connect-src 'self' *.google-analytics.com *.analytics.google.com https://www.compare-school-performance.service.gov.uk https://api.postcodes.io https://*.doubleclick.net https://*.clarity.ms https://c.bing.com https://*.applicationinsights.azure.com/ https://*.visualstudio.com/; child-src 'none';"
+                + "frame-src 'none';"
+                + "img-src 'self' data: https://www.googletagmanager.com/ https://*.google-analytics.com https://atlas.microsoft.com https://*.clarity.ms https://c.bing.com https://js.monitor.azure.com/;"
+                + "style-src 'self';"
+                + "font-src 'self' data:;"
+                + $"script-src 'self' 'nonce-{context.Items["ScriptNonce"]}' https://www.googletagmanager.com *.google-analytics.com https://*.clarity.ms https://c.bing.com https://js.monitor.azure.com/;"
+                );
 
-        //    await next.Invoke();
-        //});
+            await next.Invoke();
+        });
 
         app.MapControllerRoute(
             name: "default",

@@ -8,8 +8,8 @@ namespace Charybdis.Core.Entities.Measures
 {
     public class KS4_SubjectEntries
     {
-        public IEnumerable<SubjectEntries> CoreSubjects { get; set; }
-        public IEnumerable<SubjectEntries> AdditionalSubjects { get; set; }
+        public IEnumerable<SubjectEntries> CoreSubjects { get; set; } = default!;
+        public IEnumerable<SubjectEntries> AdditionalSubjects { get; set; } = default!;
     }
 
     public class SubjectEntries
