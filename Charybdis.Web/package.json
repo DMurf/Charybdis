@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "copy-js": "copyfiles -f node_modules/jquery/dist/jquery.min.js wwwroot/js/ && copyfiles -f node_modules/chart.js/dist/chart.umd.min.js wwwroot/js/ && copyfiles -f node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min wwwroot/js/"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {    
     "chart.js": "^4.5.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "copyfiles": "^2.4.1",

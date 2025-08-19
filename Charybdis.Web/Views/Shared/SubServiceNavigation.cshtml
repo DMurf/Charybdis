@@ -1,13 +1,28 @@
 ﻿@if (ViewBag.EstabNumber != null && ViewBag.EstabNameSafe != null)
 {
-    <govuk-service-navigation>
-        <govuk-service-navigation-nav>
-            <govuk-service-navigation-nav-item href="@Url.Action("AboutTheSchool", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">About the school</govuk-service-navigation-nav-item>
-            <govuk-service-navigation-nav-item href="@Url.Action("Admissions", "School", new {urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Admissions</govuk-service-navigation-nav-item>
-            <govuk-service-navigation-nav-item href="@Url.Action("CurriculumEnrichment", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Curriculum and enrichment</govuk-service-navigation-nav-item>
-            <govuk-service-navigation-nav-item href="@Url.Action("Attendance", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Attendance</govuk-service-navigation-nav-item>
-            <govuk-service-navigation-nav-item href="@Url.Action("AcademicPerformance", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Academic performance</govuk-service-navigation-nav-item>
-            <govuk-service-navigation-nav-item href="@Url.Action("Ofsted", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Ofsted</govuk-service-navigation-nav-item>
-        </govuk-service-navigation-nav>
-    </govuk-service-navigation>
+
+    <ul class="govuk-list">
+        <li>
+            <a class="govuk-link" href="@Url.Action("AboutTheSchool", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">About the school</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="@Url.Action("Admissions", "School", new {urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Admissions</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="@Url.Action("CurriculumEnrichment", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Curriculum</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="#">Extra-curricular activities</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="@Url.Action("Attendance", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Attendance</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="@Url.Action("AcademicPerformance", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Academic performance</a>
+        </li>
+        <li>
+            <a class="govuk-link" href="@Url.Action("Ofsted", "School", new { urn = ViewBag.EstabNumber, name = ViewBag.EstabNameSafe })">Ofsted</a>
+        </li>
+    </ul>
+
 }

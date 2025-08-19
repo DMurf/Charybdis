@@ -1,5 +1,7 @@
-﻿using Charybdis.Core.Entities.DTOs;
+﻿using Charybdis.Core.Entities;
 using Charybdis.Core.Interfaces.Repositories;
+using Charybdis.Infrastructure.Entities.DTOs;
+using Charybdis.Infrastructure.Entities.Mappers;
 using Charybdis.Infrastructure.Repositories.Generic;
 using System;
 using System.Collections.Generic;
@@ -19,9 +21,15 @@ namespace Charybdis.Infrastructure.Repositories
         {
             _genericCSVRepository = genericCSVRepository;
         }
-        public IEnumerable<GIASDataModel> GetRecords()
+        public IEnumerable<EstablishmentMetadata> GetRecords()
         {
-            return _genericCSVRepository.GetRecords<GIASDataModel>(_filePath);
+            var readFile = _genericCSVRepository.GetRecords<GIASDataModel>(_filePath);
+            if (readFile == null)
+            {
+                throw new Exception("GIAS file not read");
+            }
+
+            return readFile.Select(x => EstablishmentGIASMapper.Map(x));
         }
     }
 }

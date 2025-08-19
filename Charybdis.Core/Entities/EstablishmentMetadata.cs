@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Charybdis.Core.Entities
 {
-    public class EstablishmentCore
+    public class EstablishmentMetadata
     {
         public int EstablishmentNumber { get; set; } = default!;
         public string EstablishmentName { get; set; } = default!;
@@ -55,6 +55,6 @@ namespace Charybdis.Core.Entities
 
 
 
-        public EstablishmentCore() { }
+        public EstablishmentMetadata() { }
     }
 }

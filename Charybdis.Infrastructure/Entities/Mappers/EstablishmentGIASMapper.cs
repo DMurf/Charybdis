@@ -1,18 +1,18 @@
 ﻿using Charybdis.Core.Entities;
-using Charybdis.Core.Entities.DTOs;
+using Charybdis.Infrastructure.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Charybdis.Infrastructure.Mappers
+namespace Charybdis.Infrastructure.Entities.Mappers
 {
     public class EstablishmentGIASMapper
     {
-        public static EstablishmentCore Map(GIASDataModel gias)
+        public static EstablishmentMetadata Map(GIASDataModel gias)
         {
-            return new EstablishmentCore
+            return new EstablishmentMetadata
             {
                 AgeRange = $"{gias.StatutoryLowAge} to {gias.StatutoryHighAge}",
                 StatutoryHighAge = int.Parse(gias.StatutoryHighAge),

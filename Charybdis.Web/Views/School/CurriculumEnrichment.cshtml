@@ -1,4 +1,4 @@
-﻿@model Charybdis.Core.Entities.EstablishmentCore
+﻿@model Charybdis.Core.Entities.EstablishmentMetadata
 
 @{
     ViewBag.Title = "Curriculum and enrichment";
@@ -6,6 +6,9 @@
 }
 
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        @await Html.PartialAsync("SubServiceNavigation", Model)
+    </div>
     <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-xl">@Model.EstablishmentName</span>
         <h1 class="govuk-heading-xl">@ViewBag.Title</h1>

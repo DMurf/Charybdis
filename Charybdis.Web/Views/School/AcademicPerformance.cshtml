@@ -6,8 +6,11 @@
 }
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-        <span class="govuk-caption-xl">@Model.EstablishmentCore.EstablishmentName</span>
+    <div class="govuk-grid-column-one-third">
+        @await Html.PartialAsync("SubServiceNavigation", Model)
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">@Model.EstablishmentMetadata.EstablishmentName</span>
         <h1 class="govuk-heading-xl">@ViewBag.Title</h1>
 
         <p>Vivamus magna lectus, accumsan a felis at, pharetra elementum tellus. Sed vel lectus odio. Donec in ipsum quam. Aenean ut nisl dolor.</p>
@@ -21,28 +24,28 @@
             </govuk-service-navigation-nav>
         </govuk-service-navigation>
 
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            @if (ViewBag.Tab == "entries")
+            {
+                @await Html.PartialAsync("Measures/KS4/ExamEntries", Model)
+            }
+            else if (ViewBag.Tab == "progress")
+            {
+                @await Html.PartialAsync("Measures/KS4/Progress", Model)
+            }
+            else if (ViewBag.Tab == "destination")
+            {
+                @await Html.PartialAsync("Measures/KS4/Destinations", Model)
+            }
+            else
+            {
+                @await Html.PartialAsync("Measures/KS4/Results", Model)
+            }
+
+            </div>
+        </div>
     </div>
-    <div class="govuk-grid-column-two-thirds">
-
-        @if (ViewBag.Tab == "entries")
-        {
-            @await Html.PartialAsync("Partials/_KS4ExamEntries", Model)
-        }
-        else if (ViewBag.Tab == "progress")
-        {
-            @await Html.PartialAsync("Partials/_KS4Progress", Model)
-        }
-        else if (ViewBag.Tab == "destination")
-        {
-            @await Html.PartialAsync("Partials/_KS4Destinations", Model)
-        }
-        else
-        {
-            @await Html.PartialAsync("Partials/_KS4Results", Model)
-        }
-
-        
-    </div>
-
 
 </div>

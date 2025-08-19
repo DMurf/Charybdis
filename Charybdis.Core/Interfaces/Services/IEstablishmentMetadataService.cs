@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Charybdis.Core.Interfaces.Services
 {
-    public interface IEstablishmentCoreService
+    public interface IEstablishmentMetadataService
     {
-        IEnumerable<EstablishmentCore> GetEstablishments();
-        EstablishmentCore GetEstablishment(int urn);
+        IEnumerable<EstablishmentMetadata> GetEstablishments();
+        EstablishmentMetadata GetEstablishment(int urn);
     }
 }
