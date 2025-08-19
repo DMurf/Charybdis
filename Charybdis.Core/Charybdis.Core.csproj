@@ -10,4 +10,8 @@
     <PackageReference Include="CsvHelper" Version="33.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entities\Mappers\" />
+  </ItemGroup>
+
 </Project>

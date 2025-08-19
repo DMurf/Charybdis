@@ -1,4 +1,5 @@
-﻿using Charybdis.Core.Entities.Measures;
+﻿using Charybdis.Core.Entities.Measures.CrossCutting;
+using Charybdis.Core.Entities.Measures.KS4;
 using Charybdis.Core.Interfaces.Services;
 using Charybdis.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -7,17 +8,17 @@ namespace Charybdis.Web.Controllers
 {
     public class SchoolController : Controller
     {
-        private readonly IEstablishmentCoreService _establishmentCoreService;
+        private readonly IEstablishmentMetadataService _establishmentMetadataService;
 
-        public SchoolController(IEstablishmentCoreService establishmentCoreService)
+        public SchoolController(IEstablishmentMetadataService EstablishmentMetadataService)
         {
-            _establishmentCoreService = establishmentCoreService;
+            _establishmentMetadataService = EstablishmentMetadataService;
         }
 
         [Route("school/{urn}")]
         public IActionResult IndexRedirect(int urn)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             if (establishment !=null)
             {
                 ViewBag.EstabNameSafe = establishment.EstablishmentNameUrlFriendly;
@@ -30,7 +31,7 @@ namespace Charybdis.Web.Controllers
         [Route("school/{urn}/{name}/about")]
         public IActionResult AboutTheSchool(int urn, string name)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             ViewBag.EstabNameSafe = establishment.EstablishmentNameUrlFriendly;
             ViewBag.EstabNumber = establishment.EstablishmentNumber;
             return View(establishment);
@@ -39,7 +40,7 @@ namespace Charybdis.Web.Controllers
         [Route("school/{urn}/{name}/admissions")]
         public IActionResult Admissions(int urn, string name)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             ViewBag.EstabNameSafe = establishment.EstablishmentNameUrlFriendly;
             ViewBag.EstabNumber = establishment.EstablishmentNumber;
             return View(establishment);
@@ -48,7 +49,7 @@ namespace Charybdis.Web.Controllers
         [Route("school/{urn}/{name}/curriculum")]
         public IActionResult CurriculumEnrichment(int urn, string name)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             ViewBag.EstabNameSafe = establishment.EstablishmentNameUrlFriendly;
             ViewBag.EstabNumber = establishment.EstablishmentNumber;
             return View(establishment);
@@ -57,7 +58,7 @@ namespace Charybdis.Web.Controllers
         [Route("school/{urn}/{name}/attendance")]
         public IActionResult Attendance(int urn, string name)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             ViewBag.EstabNameSafe = establishment.EstablishmentNameUrlFriendly;
             ViewBag.EstabNumber = establishment.EstablishmentNumber;
             return View(establishment);
@@ -66,13 +67,13 @@ namespace Charybdis.Web.Controllers
         [Route("school/{urn}/{name}/academicperformance")]
         public IActionResult AcademicPerformance(int urn, string name, string? tab)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             var viewModel = new AcademicPerformanceViewModel
             {
-                EstablishmentCore = establishment
+                EstablishmentMetadata = establishment
             };
 
-            viewModel.KS4_Grade5EngMath = new KS4_Grade5EngMath
+            viewModel.KS4_Grade5EngMath = new Grade5EngMath
             {
                 Grade5_EngMaths = "0.612",
                 Grade5_EngMaths_YPrevious = "0.35",
@@ -113,28 +114,28 @@ namespace Charybdis.Web.Controllers
 
             };
 
-            viewModel.KS4_SubjectEntries = new KS4_SubjectEntries
+            viewModel.KS4_SubjectEntries = new SubjectEntries
             {
-                CoreSubjects = new List<SubjectEntries>
+                CoreSubjects = new List<SubjectEntryItem>
                 {
-                    new SubjectEntries("English language", "GCSE", 160),
-                    new SubjectEntries("English literature", "GCSE", 140),
-                    new SubjectEntries("Mathematics", "GCSE", 200),
-                    new SubjectEntries("Science: Double award", "GCSE", 150),
-                    new SubjectEntries("Biology", "GCSE", 99),
-                    new SubjectEntries("Chemistry", "GCSE", 90),
-                    new SubjectEntries("Physics", "GCSE", 70),
+                    new SubjectEntryItem("English language", "GCSE", 160),
+                    new SubjectEntryItem("English literature", "GCSE", 140),
+                    new SubjectEntryItem("Mathematics", "GCSE", 200),
+                    new SubjectEntryItem("Science: Double award", "GCSE", 150),
+                    new SubjectEntryItem("Biology", "GCSE", 99),
+                    new SubjectEntryItem("Chemistry", "GCSE", 90),
+                    new SubjectEntryItem("Physics", "GCSE", 70),
                 },
-                AdditionalSubjects = new List<SubjectEntries>
+                AdditionalSubjects = new List<SubjectEntryItem>
                 {
-                    new SubjectEntries("Animal Care", "Technical award", 30),
-                    new SubjectEntries("Art and design", "GCSE", 20),
-                    new SubjectEntries("Computer studies", "GCSE", 60),
-                    new SubjectEntries("Construction", "Technical award", 3),
+                    new SubjectEntryItem("Animal Care", "Technical award", 30),
+                    new SubjectEntryItem("Art and design", "GCSE", 20),
+                    new SubjectEntryItem("Computer studies", "GCSE", 60),
+                    new SubjectEntryItem("Construction", "Technical award", 3),
                 },
             };
 
-            viewModel.KS4_Destinations = new KS4_Destinations
+            viewModel.KS4_Destinations = new Destinations
             {
                 Destination_School = "0.95",
                 Destination_LA = "0.90",
@@ -182,7 +183,7 @@ namespace Charybdis.Web.Controllers
         [Route("school/{urn}/{name}/ofsted")]
         public IActionResult Ofsted(int urn, string name)
         {
-            var establishment = _establishmentCoreService.GetEstablishment(urn);
+            var establishment = _establishmentMetadataService.GetEstablishment(urn);
             ViewBag.EstabNameSafe = establishment.EstablishmentNameUrlFriendly;
             ViewBag.EstabNumber = establishment.EstablishmentNumber;
             return View(establishment);

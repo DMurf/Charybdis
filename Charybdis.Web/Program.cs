@@ -84,7 +84,7 @@ public class Program
 
         builder.Services.AddScoped<IGenericRepository, GenericCSVRepository>();
         builder.Services.AddScoped<IGIASRepository, GIASRepository>();
-        builder.Services.AddScoped<IEstablishmentCoreService, EstablishmentCodeService>();
+        builder.Services.AddScoped<IEstablishmentMetadataService, EstablishmentMetadataService>();
 
 
 

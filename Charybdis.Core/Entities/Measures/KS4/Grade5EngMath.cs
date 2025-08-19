@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Charybdis.Core.Entities.Measures
+namespace Charybdis.Core.Entities.Measures.KS4
 {
-    public class KS4_Grade5EngMath
+    public class Grade5EngMath
     {
         public string Grade5_EngMaths { get; set; } = default!;
         public string Grade5_EngMaths_YPrevious { get; set; } = default!;

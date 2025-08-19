@@ -1,6 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 
-namespace Charybdis.Core.Entities.DTOs
+namespace Charybdis.Infrastructure.Entities.DTOs
 {
     public class GIASDataModel
     {

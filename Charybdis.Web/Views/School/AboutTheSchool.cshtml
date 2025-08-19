@@ -1,4 +1,4 @@
-﻿@model Charybdis.Core.Entities.EstablishmentCore
+﻿@model Charybdis.Core.Entities.EstablishmentMetadata
 
 @{
     ViewBag.Title = "About the school";
@@ -12,6 +12,9 @@
 
 
 <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        @await Html.PartialAsync("SubServiceNavigation", Model)
+    </div>
     <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-xl">@Model.EstablishmentName</span>
         <h1 class="govuk-heading-xl">About the school</h1>
@@ -37,11 +40,6 @@
                     </govuk-summary-list-row-value>
                 </govuk-summary-list-row>
             }
-        </govuk-summary-list>
-
-        <h3 class="govuk-heading-m">Contact information</h3>
-
-        <govuk-summary-list>
             <govuk-summary-list-row>
                 <govuk-summary-list-row-key>
                     Website
@@ -50,6 +48,11 @@
                     @Model.Website
                 </govuk-summary-list-row-value>
             </govuk-summary-list-row>
+        </govuk-summary-list>
+
+        <h3 class="govuk-heading-m">Contact details</h3>
+
+        <govuk-summary-list>
             @if (!string.IsNullOrWhiteSpace(Model.Email))
             {
                 <govuk-summary-list-row>
@@ -95,7 +98,7 @@
             </govuk-summary-list-row>
             <govuk-summary-list-row>
                 <govuk-summary-list-row-key>
-                    Your distance from the school
+                    Number of secondary schools in a 3 mile radius of this school
                 </govuk-summary-list-row-key>
                 <govuk-summary-list-row-value>
                     ??
@@ -208,76 +211,71 @@
                 </h2>
             </div>
             <div class="govuk-summary-card__content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis augue eu pretium scelerisque. Mauris eu volutpat augue. Mauris et erat placerat dolor aliquam hendrerit. Integer vitae scelerisque velit, ut mollis urna. Vivamus cursus ac nunc vel scelerisque. Cras sit amet ornare nibh. Aenean id est at leo congue dignissim at ut diam.</p>
+                <p>All schools in England must publish statutory policies and documents that explain how the school is run and how staff and pupils should behave. Statutory policies and documents must be published on school websites. Schools can also create their own guidelines.</p>
 
-                <a href="@Model.Website">View these policies on the school website</a>
-                <govuk-summary-list>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Policy
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
-                        Description
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Accessibility plan
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
+                
 
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Behaviour policy
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Policy</th>
+                            <th scope="col" class="govuk-table__header">Description</th>
+                            <th scope="col" class="govuk-table__header">Link</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Accessibility plan</th>
+                            <td class="govuk-table__cell">Includes how to increase the extent to which pupils with disabilities can participate in the curriculum, how to improve the physical environment, and how to improve the availability of accessible information.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Behaviour policy</th>
+                            <td class="govuk-table__cell">Includes school rules, what behaviour is expected of pupils and what the school does to prevent bullying.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Charging and remissions policy</th>
+                            <td class="govuk-table__cell">Schools may charge for certain activities such as school trips or music tuition. This policy covers what the school charges for and when these charges can be reduced or waived.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
 
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Charging and remissions policy
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
-
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Complains policy
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
-
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Safeguarding policy
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
-
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        School uniform policy
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
-
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-                <govuk-summary-list-row>
-                    <govuk-summary-list-row-key>
-                        Special educational needs and disabilities (SEND) information report
-                    </govuk-summary-list-row-key>
-                    <govuk-summary-list-row-value>
-
-                    </govuk-summary-list-row-value>
-                </govuk-summary-list-row>
-            </govuk-summary-list>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Complaints policy</th>
+                            <td class="govuk-table__cell">A complaints policy shows how parents or carers can raise concerns with a school and how to make a complaint.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Safeguarding policy</th>
+                            <td class="govuk-table__cell">Outlines how the school protects pupils from harm, ensuring their safety and well-being.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">School uniform policy</th>
+                            <td class="govuk-table__cell">A school uniform policy outlines to parents and carers what pupils are expected to wear and what the exceptions are.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Special educational needs and disabilities (SEND) information report</th>
+                            <td class="govuk-table__cell">Schools must publish a report on their approach to SEND, including how the school supports pupils with SEND.</td>
+                            <td class="govuk-table__cell"><a href="@Model.Website">View these policies on the school website</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
+                    
+
+
+
+
+
+
+
+
+
+
+

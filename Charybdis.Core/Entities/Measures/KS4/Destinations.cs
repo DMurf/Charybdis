@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Charybdis.Core.Entities.Measures
+namespace Charybdis.Core.Entities.Measures.KS4
 {
-    public class KS4_Destinations
+    public class Destinations
     {
         public string Destination_School { get; set; } = default!;
         public string Destination_LA { get; set; } = default!;

@@ -1,7 +1,6 @@
 ﻿using Charybdis.Core.Entities;
 using Charybdis.Core.Interfaces.Repositories;
 using Charybdis.Core.Interfaces.Services;
-using Charybdis.Infrastructure.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace Charybdis.Core.Services
 {
-    public class EstablishmentCodeService : IEstablishmentCoreService
+    public class EstablishmentMetadataService : IEstablishmentMetadataService
     {
         private readonly IGIASRepository _repository;
 
-        public EstablishmentCodeService(IGIASRepository giasRepo)
+        public EstablishmentMetadataService(IGIASRepository giasRepo)
         {
             _repository = giasRepo;
         }
 
-        public EstablishmentCore GetEstablishment(int urn)
+        public EstablishmentMetadata GetEstablishment(int urn)
         {
-            var rawData = _repository.GetRecords().FirstOrDefault(x => x.URN == urn.ToString());
+            var rawData = _repository.GetRecords().FirstOrDefault(x => x.EstablishmentNumber == urn);
             if (rawData == null)
             {
                 throw new Exception($"GetEstablishment, no URN data for {urn}");
             }
-            return EstablishmentGIASMapper.Map(rawData);
+            return rawData;
         }
 
-        public IEnumerable<EstablishmentCore> GetEstablishments()
+        public IEnumerable<EstablishmentMetadata> GetEstablishments()
         {
             throw new NotImplementedException();
         }

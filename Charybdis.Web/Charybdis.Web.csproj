@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Charybdis.Infrastructure\Charybdis.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\School\Partials\" />
+  </ItemGroup>
+
 </Project>
