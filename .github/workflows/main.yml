@@ -39,7 +39,7 @@ jobs:
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/charybdis'
     - uses: a11ywatch/github-action@v2.1.10
       with:
-        WEBSITE_URL: "https://charybdis-agh5deebangwbrey.ukwest-01.azurewebsites.net/"
+        WEBSITE_URL: "https://charybdis-agh5deebangwbrey.ukwest-01.azurewebsites.net"
         SITE_WIDE: true
         SUBDOMAINS: false
         TLD: false
