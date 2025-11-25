@@ -28,15 +28,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
 
-    - name: Publish
-      run: dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/charybdis
-
-    - uses: azure/webapps-deploy@v3
-      name: Deploy
-      with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_T }}
-        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/charybdis'
     - uses: a11ywatch/github-action@v2.1.10
       with:
         WEBSITE_URL: "https://charybdis-agh5deebangwbrey.ukwest-01.azurewebsites.net"
